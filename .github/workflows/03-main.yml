@@ -1,10 +1,9 @@
 name: PRODUCTION Deploy (Deploy First, Merge After)
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-    types: [opened, synchronize]
 
 jobs:
   terraform-validation:
@@ -24,7 +23,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
       with:
-        terraform_version: 1.6.0
+        terraform_version: 1.9.8
 
     - name: Terraform Validation and Plan for PRODUCTION
       working-directory: terraform
@@ -60,7 +59,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
       with:
-        terraform_version: 1.6.0
+        terraform_version: 1.9.8
 
     - name: Pre-deployment validation
       run: |
