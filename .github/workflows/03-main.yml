@@ -1,6 +1,9 @@
 name: PRODUCTION Deploy (Deploy First, Merge After)
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
